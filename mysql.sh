@@ -3,7 +3,7 @@
 logs_folder="/var/log/expence"
 script_name=$(echo $0 | cut -d "." -f1)
 time_stamp=$(date +%Y-%m-%d-%H-%M-%S)
-logs_file=$logs_folder/$script_name_$timestamp.log
+logs_file="$logs_folder/$script_name_$timestamp.log"
 mkdir -p $logs_folder
 
 userid=$(id -u)
@@ -13,7 +13,7 @@ N="\e[0m"
 Y="\e[33m"
 
 check_root(){
-if [$? -ne o]
+if [ $userid -ne o]
   then
   echo -e "$R usre dont have root prevelages run with root user $N" |tee -a &>>$logs_file
   exit 1
@@ -22,9 +22,9 @@ fi
 validate(){
    if [$1 -ne 0]
     then
-      echo "$2 is $R failing installed $N" | tee -a $logs_file
+      echo -e "$2 is $R failing installed $N" | tee -a $logs_file
     else
-       echo "$2 is $Y sucessfully installed $N" | tee -a $logs_file
+       echo -e "$2 is $Y sucessfully installed $N" | tee -a $logs_file
     fi
 }
 
