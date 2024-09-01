@@ -25,7 +25,8 @@ validate(){
      echo "$2 is $R failing installed $N" | tee -a $logs_file
     else
     echo "$2 is $Y sucessfully installed $N" | tee -a $logs_file
-    f1
+
+    fi
 }
 
 echo "script started excuting $(date)" | tee -a $logs_file
