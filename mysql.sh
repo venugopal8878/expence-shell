@@ -45,7 +45,7 @@ validate $? "started mysqlserver"
 
 mysql -h mysql.venuportal.online -u root -pExpenseApp@1 -e 'show databases;' &>>$logs_file
 
-if [$? -ne 0]
+if [ $? -ne 0]
 then 
    echo "root password is not set please check" &>>$logs_file
    mysql_secure_installation --set-root-pass ExpenseApp@1
