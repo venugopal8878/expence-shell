@@ -7,6 +7,7 @@ logs_file="$logs_folder/$script_name_$timestamp.log"
 mkdir -p $logs_folder
 
 userid=$(id -u)
+
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
@@ -19,6 +20,7 @@ if [ $userid -ne o]
   exit 1
 fi
 }
+
 validate(){
    if [$1 -ne 0]
     then
@@ -35,10 +37,10 @@ check_root
 dnf  install mysql-server -y &>>$logs_file
 validate $? "mysql server"
 
-systemctl enable mysql-server  &>>$logs_file
+systemctl enable mysqld  &>>$logs_file
 validate $? "enable mysqlserver"
 
-systemctl start mysql-server  &>>$logs_file
+systemctl start mysqld  &>>$logs_file
 validate $? "started mysqlserver"
 
 mysql -h mysql.venuportal.online -u root -pExpenseApp@1 -e 'show databases;' &>>$logs_file
