@@ -14,7 +14,7 @@ Y="\e[33m"
 
 check_root(){
 if [$? -ne o]
-
+  then
   echo -e "$R usre dont have root prevelages run with root user $N" |tee -a &>>$logs_file
   exit 1
 fi
