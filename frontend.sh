@@ -15,7 +15,7 @@ N="\e[0m"
 Y="\e[33m"
 
 CHECK_ROOT(){
-    if [$? -ne o]
+    if [$userid -ne o]
     then 
       echo -e "$R plese run the script with root prevelages $n" 3 | tee -q $log_file
       exit 1
