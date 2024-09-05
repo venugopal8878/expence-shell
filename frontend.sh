@@ -1,4 +1,5 @@
 #!/bin/bash
+check_root()
 
 Logs_folder=/var/logs/expence
 script_name=$(echo $0 | cut -d "." fi)
