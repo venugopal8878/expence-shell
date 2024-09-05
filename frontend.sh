@@ -23,7 +23,7 @@ CHECK_ROOT(){
 }
 
 
-
+ 
 Validate(){
     if [ $1 -ne 0]
     then 
@@ -36,7 +36,8 @@ Validate(){
 
 echo "script started executing at:$(date) " #&>>$log_file
 
-check_root
+CHECK_ROOT
+
 
 # dnf install nginx -y &>>$log_file
 # validate $? "installing ngnix"
