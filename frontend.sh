@@ -1,11 +1,11 @@
 #!/bin/bash
 
 
-Logs_folder="/var/logs/expence"
-script_name=$(echo $0 | cut -d "." fi)
-TIMESTAMP=$(date +"%d-%m-%YYY-%h-%m-%s")
-log_file=$Logs_folder/$script_name-$timestamp.log
-mkdir -p $Logs_folder
+# Logs_folder="/var/logs/expence"
+# script_name=$(echo $0 | cut -d "." fi)
+# TIMESTAMP=$(date +"%d-%m-%YYY-%h-%m-%s")
+# log_file=$Logs_folder/$script_name-$timestamp.log
+# mkdir -p $Logs_folder
 
 userid=$(id -u)
 
@@ -38,28 +38,28 @@ echo "script started executing at:$(date) " #&>>$log_file
 
 check_root
 
-dnf install nginx -y &>>$log_file
-validate $? "installing ngnix"
+# dnf install nginx -y &>>$log_file
+# validate $? "installing ngnix"
 
-systemctl start nginx &>>$log_file
-validate $? "stary nginx"
+# systemctl start nginx &>>$log_file
+# validate $? "stary nginx"
 
-systemctl enable nginx &>>$log_file
-validate $? "enable nginx"
+# systemctl enable nginx &>>$log_file
+# validate $? "enable nginx"
 
-rm -rf /usr/share/nginx/html/* &>>$log_file
-validate $? "removing default directory"
+# rm -rf /usr/share/nginx/html/* &>>$log_file
+# validate $? "removing default directory"
 
-curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$log_file
-valiadate $? "downloadubg code"
+# curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$log_file
+# valiadate $? "downloadubg code"
 
-cd /user/share/nginx/html
-unzip /temp/front.zip
-Validate $? "unsxipiing the file"
+# cd /user/share/nginx/html
+# unzip /temp/front.zip
+# Validate $? "unsxipiing the file"
 
 
-cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf
-VALIDATE $? "Copied expense conf"
+# cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf
+# VALIDATE $? "Copied expense conf"
 
-systemctl restart nginx &>>$log_file
-validate ?? "ingnix re started"
+# systemctl restart nginx &>>$log_file
+# validate ?? "ingnix re started"
