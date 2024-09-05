@@ -1,11 +1,11 @@
 #!/bin/bash
 
 
-# Logs_folder="/var/logs/expence"
-# script_name=$(echo $0 | cut -d "." fi)
-# TIMESTAMP=$(date +"%d-%m-%YYY-%h-%m-%s")
-# log_file=$Logs_folder/$script_name-$timestamp.log
-# mkdir -p $Logs_folder
+Logs_folder="/var/logs/expence"
+script_name=$(echo $0 | cut -d "." fi)
+TIMESTAMP=$(date +"%d-%m-%YYY-%h-%m-%s")
+log_file=$Logs_folder/$script_name-$timestamp.log
+mkdir -p $Logs_folder
 
 userid=$(id -u)
 
@@ -21,6 +21,8 @@ CHECK_ROOT(){
       exit 1
     fi
 }
+
+
 
 Validate(){
     if [ $1 -ne 0]
