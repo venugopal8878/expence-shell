@@ -17,7 +17,7 @@ Y="\e[33m"
 CHECK_ROOT(){
     if [$? -ne o]
     then 
-      echo -e "$R plese run the script with root prevelages $n" | tee -q $log_file
+      echo -e "$R plese run the script with root prevelages $n" 3 | tee -q $log_file
       exit 1
     fi
 }
@@ -26,14 +26,14 @@ CHECK_ROOT(){
 Validate(){
     if [ $1 -ne 0]
     then 
-      echo -e " $1 is $R not sucessfull $2 is not installed please check once$N" | tee -a $log_file
+      echo -e " $1 is $R not sucessfull $2 is not installed please check once$N" # | tee -a $log_file
       exit 1
     else
-      echo -e  "$1 is $Y suceessfull $2 is installed$N" | tee -a $log_file
+      echo -e  "$1 is $Y suceessfull $2 is installed$N" #| tee -a $log_file
     fi
 }
 
-echo "script started executing at:$(date) " &>>$log_file
+echo "script started executing at:$(date) " #&>>$log_file
 
 check_root()
 
