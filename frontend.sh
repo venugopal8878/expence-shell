@@ -22,6 +22,8 @@ CHECK_ROOT(){
     fi
 }
 
+check_root()
+
 
 Validate(){
     if [ $1 -ne 0]
